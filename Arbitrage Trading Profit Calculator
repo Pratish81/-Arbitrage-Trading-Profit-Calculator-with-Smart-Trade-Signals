@@ -1,0 +1,22 @@
+def calculate_arbitrage_profit(spot_price, future_price, lot_size):
+    profit = (future_price - spot_price) * lot_size
+    
+    # Smart Decision Logic
+    if spot_price > future_price:
+        trade_advice = "Sell Spot, Buy Future"
+    elif future_price > spot_price:
+        trade_advice = "Sell Future, Buy Spot"
+    else:
+        trade_advice = "No Trade (Prices are Equal)"
+
+    return profit, trade_advice
+
+# Example usage:
+spot_price = float(input("Enter Spot Price: "))
+future_price = float(input("Enter Future Price: "))
+lot_size = int(input("Enter Lot Size: "))
+
+profit, advice = calculate_arbitrage_profit(spot_price, future_price, lot_size)
+
+print(f"Fixed Profit: {profit}")
+print(f"Trading Advice: {advice}")
